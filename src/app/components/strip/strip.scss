@@ -1,0 +1,9 @@
+.about-strip { background:var(--brown-deep); padding:20px 0; overflow:hidden; }
+.strip-inner { display:flex; gap:0; animation:marquee 22s linear infinite; white-space:nowrap; }
+.strip-item {
+  display:inline-flex; align-items:center; gap:14px; padding:0 32px;
+  font-family:var(--font-ui); font-size:0.78rem; letter-spacing:0.15em;
+  text-transform:uppercase; color:var(--gold-pale); flex-shrink:0;
+}
+.strip-sep { color:var(--gold); }
+@keyframes marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }

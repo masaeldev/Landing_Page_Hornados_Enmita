@@ -1,0 +1,86 @@
+<section id="ubicaciones" class="section section-alt">
+  <div class="container">
+    <div class="location-header reveal">
+      <span class="section-label">Dónde encontrarnos</span>
+      <h2 class="section-title">Nuestros Puntos de Venta</h2>
+      <div class="divider"></div>
+      <p class="location-intro">Dos espacios únicos para disfrutar el auténtico hornado ibarreño.</p>
+    </div>
+
+    <div class="location-grid">
+      @for (loc of locations; track loc.id; let i = $index) {
+        <div class="loc-card reveal" [class]="i > 0 ? 'reveal-delay-1' : ''">
+          <div class="loc-card-header" [ngClass]="loc.cardClass">
+            <div class="loc-badge">{{ loc.badge }}</div>
+            <h3 class="loc-card-title">{{ loc.name }}</h3>
+            <p class="loc-card-sub">{{ loc.subtitle }}</p>
+            @if (loc.puestoCode) {
+              <div class="puesto-tag">
+                <span class="puesto-code">{{ loc.puestoCode }}</span>
+                <span class="puesto-label">Puesto</span>
+              </div>
+            }
+          </div>
+
+          @if (loc.image) {
+            <div class="loc-photo">
+              <img [src]="loc.image" [alt]="'Puesto ' + loc.name" loading="lazy" (error)="onImgError($event)" />
+            </div>
+          }
+
+          <div class="loc-card-body">
+            <div class="loc-info-grid">
+              <div class="loc-info-item">
+                <span class="loc-info-icon">⏰</span>
+                <div class="loc-info-text">
+                  <span class="loc-info-label">Horario</span>
+                  <span class="loc-info-value hours">{{ loc.schedule }}</span>
+                </div>
+              </div>
+              <div class="loc-info-item">
+                <span class="loc-info-icon">📅</span>
+                <div class="loc-info-text">
+                  <span class="loc-info-label">Días</span>
+                  <span class="loc-info-value">{{ loc.days }}</span>
+                </div>
+              </div>
+              <div class="loc-info-item">
+                <span class="loc-info-icon">🚗</span>
+                <div class="loc-info-text">
+                  <span class="loc-info-label">Estacionamiento</span>
+                  <span class="loc-info-value">{{ loc.parking }}</span>
+                </div>
+              </div>
+              <div class="loc-info-item">
+                <span class="loc-info-icon">🌿</span>
+                <div class="loc-info-text">
+                  <span class="loc-info-label">Ambiente</span>
+                  <span class="loc-info-value">{{ loc.ambiente }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="loc-products">
+              <p class="loc-products-label">Disponible aquí</p>
+              <div class="loc-products-list">
+                @for (product of loc.products; track product) {
+                  <span class="product-pill">{{ product }}</span>
+                }
+              </div>
+            </div>
+
+            <div class="loc-actions">
+              <a class="btn btn-primary loc-btn" (click)="openMap(loc.mapsUrl)">🗺️ Cómo llegar</a>
+              <a class="btn btn-outline loc-btn" (click)="openMap(loc.wazeUrl)">🧭 Abrir en Waze</a>
+            </div>
+          </div>
+
+          <div class="map-placeholder" (click)="openMap(loc.mapsUrl)">
+            <div class="map-icon">🗺️</div>
+            <span>Ver en Google Maps → {{ loc.name }}</span>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

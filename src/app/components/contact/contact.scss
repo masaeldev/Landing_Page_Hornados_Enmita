@@ -1,0 +1,31 @@
+.booking-grid { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
+.booking-desc { color:var(--text-mid); margin-bottom:28px; font-size:0.95rem; }
+.contact-info-list { display:flex; flex-direction:column; gap:16px; }
+.contact-info-item { display:flex; align-items:center; gap:14px; }
+.contact-info-icon { width:44px; height:44px; background:var(--cream-dark); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
+.contact-info-text { display:flex; flex-direction:column; }
+.contact-info-label { font-family:var(--font-ui); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-light); }
+.contact-info-value { font-family:var(--font-ui); font-size:0.92rem; color:var(--text-dark); font-weight:500; }
+.social-row { display:flex; gap:12px; margin-top:28px; }
+.social-btn {
+  width:44px; height:44px; border-radius:12px; background:var(--cream-dark);
+  display:flex; align-items:center; justify-content:center; font-size:1.2rem; cursor:pointer;
+  transition:var(--transition); text-decoration:none;
+  &:hover { background:var(--gold); transform:translateY(-2px); }
+}
+.direct-wa { margin-top:28px; }
+.booking-form { background:var(--white); border-radius:var(--radius-lg); padding:36px; box-shadow:var(--shadow-card); border:1px solid rgba(200,146,42,0.1); }
+.form-title { font-family:var(--font-display); font-size:1.5rem; color:var(--brown-deep); margin-bottom:6px; }
+.form-subtitle { font-family:var(--font-ui); font-size:0.82rem; color:var(--text-light); margin-bottom:28px; }
+.form-group { margin-bottom:18px; }
+.form-label { display:block; font-family:var(--font-ui); font-size:0.75rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-mid); margin-bottom:6px; }
+.form-control {
+  width:100%; padding:12px 16px; border:1.5px solid rgba(200,146,42,0.2); border-radius:var(--radius-sm);
+  font-family:var(--font-body); font-size:0.9rem; color:var(--text-dark); background:var(--cream);
+  transition:border-color var(--transition); appearance:none;
+  &:focus { outline:none; border-color:var(--gold); background:var(--white); }
+}
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.btn-submit { width:100%; padding:15px; margin-top:8px; font-size:0.9rem; justify-content:center; }
+@media (max-width:900px) { .booking-grid { grid-template-columns:1fr; gap:40px; } }
+@media (max-width:680px) { .form-row { grid-template-columns:1fr; } }

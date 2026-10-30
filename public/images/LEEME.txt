@@ -1,0 +1,17 @@
+CÓMO PONER TUS FOTOS (nombres exactos, en formato .jpg)
+
+images/menu/hornado-grande.jpg
+images/menu/hornado-pequeno.jpg
+images/menu/cuero.jpg
+images/menu/salchipapas.jpg
+images/menu/papitas-hornado.jpg
+images/menu/papitas-menudencia.jpg
+
+images/enmita/enmita.jpg      <- foto de Enmita (mejor vertical)
+images/enmita/puesto.jpg      <- foto del puesto
+
+images/puestos/mercado.jpg    <- foto del puesto F139 en el mercado
+images/puestos/milagro.jpg    <- foto del local de El Milagro
+
+Tip: tamaño ideal 1000px de ancho, menos de 300 KB cada una.
+Si quieres otro formato (.png, .webp), cambia la ruta en menu-data.service.ts

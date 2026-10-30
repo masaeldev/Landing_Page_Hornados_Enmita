@@ -1,0 +1,18 @@
+.testimonials { padding:80px 0; overflow:hidden; }
+.testimonials-header { text-align:center; margin-bottom:48px; }
+.track-wrapper { overflow:hidden; padding:8px 0; }
+.testimonials-track {
+  display:flex; gap:20px; animation:slide 30s linear infinite; width:max-content;
+  &:hover { animation-play-state:paused; }
+}
+.testi-card {
+  background:var(--white); border-radius:var(--radius-lg); padding:24px 28px; width:300px;
+  flex-shrink:0; box-shadow:var(--shadow-card); border:1px solid rgba(200,146,42,0.1);
+}
+.testi-stars { color:var(--gold); font-size:0.9rem; margin-bottom:10px; }
+.testi-text { font-size:0.9rem; color:var(--text-mid); font-style:italic; margin-bottom:16px; line-height:1.6; }
+.testi-author { display:flex; align-items:center; gap:10px; }
+.testi-avatar { width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+.testi-name { font-family:var(--font-ui); font-size:0.82rem; font-weight:500; color:var(--text-dark); }
+.testi-location { font-family:var(--font-ui); font-size:0.72rem; color:var(--text-light); }
+@keyframes slide { from { transform:translateX(0); } to { transform:translateX(-50%); } }

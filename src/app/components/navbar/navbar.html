@@ -1,0 +1,31 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="container">
+    <div class="nav-inner">
+      <a class="nav-logo" (click)="scrollTo('inicio')">
+        <div class="nav-logo-circle">HE</div>
+        <div class="nav-logo-text">
+          <strong>Hornados Enmita</strong>
+          <span>Tradición y sabor en Ibarra</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a (click)="scrollTo('inicio')">Inicio</a></li>
+        <li><a (click)="scrollTo('menu')">Menú y Precios</a></li>
+        <li><a (click)="scrollTo('enmita')">Conoce a Enmita</a></li>
+        <li><a (click)="scrollTo('ubicaciones')">Ubicaciones</a></li>
+        <li><a (click)="scrollTo('contacto')">Contacto</a></li>
+      </ul>
+      <a class="btn btn-primary nav-cta" (click)="scrollTo('contacto')">Reservar ahora</a>
+      <button class="hamburger" [class.open]="isMenuOpen" (click)="toggleMenu()" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav" [class.open]="isMenuOpen">
+  <a (click)="scrollTo('inicio')">🏠 Inicio</a>
+  <a (click)="scrollTo('menu')">🍽️ Menú y Precios</a>
+  <a (click)="scrollTo('enmita')">👵 Conoce a Enmita</a>
+  <a (click)="scrollTo('ubicaciones')">📍 Ubicaciones</a>
+  <a (click)="scrollTo('contacto')">📞 Contacto & Reservas</a>
+</div>

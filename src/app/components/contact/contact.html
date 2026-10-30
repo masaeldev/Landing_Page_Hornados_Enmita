@@ -1,0 +1,110 @@
+<section id="contacto" class="section section-alt">
+  <div class="container">
+    <div class="booking-grid">
+
+      <div class="booking-left reveal">
+        <span class="section-label">Reservas y Contacto</span>
+        <h2 class="section-title">¿Listo para pedir?</h2>
+        <div class="divider"></div>
+        <p class="booking-desc">Asegura tu hornado antes de que se acabe. Llena el formulario y te contactamos por WhatsApp para confirmar tu pedido.</p>
+
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <div class="contact-info-icon">📱</div>
+            <div class="contact-info-text">
+              <span class="contact-info-label">WhatsApp</span>
+              <span class="contact-info-value">+593 XX XXX XXXX</span>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">📍</div>
+            <div class="contact-info-text">
+              <span class="contact-info-label">Mercado (Sáb &amp; Dom)</span>
+              <span class="contact-info-value">Mercado Santo Domingo · Puesto F139, Ibarra</span>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">🌄</div>
+            <div class="contact-info-text">
+              <span class="contact-info-label">El Milagro (Solo Dom)</span>
+              <span class="contact-info-value">Sector El Milagro · Vía a Urcuquí</span>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">⏰</div>
+            <div class="contact-info-text">
+              <span class="contact-info-label">Horario de Atención</span>
+              <span class="contact-info-value">06:00 AM – 01:00 PM</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-row">
+          <a class="social-btn" title="Facebook">📘</a>
+          <a class="social-btn" title="Instagram">📸</a>
+          <a class="social-btn" title="TikTok">🎵</a>
+          <a class="social-btn" title="WhatsApp Business">💬</a>
+        </div>
+
+        <div class="direct-wa">
+          <button class="btn btn-whatsapp" (click)="openDirectWA()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.553 4.106 1.52 5.824L.057 23.25a.75.75 0 0 0 .916.932l5.42-1.433A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.86 0-3.606-.5-5.112-1.374l-.363-.216-3.773.996.999-3.671-.233-.373A9.978 9.978 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Mensaje directo por WhatsApp
+          </button>
+        </div>
+      </div>
+
+      <div class="booking-form reveal reveal-delay-1">
+        <h3 class="form-title">Hacer una Reserva</h3>
+        <p class="form-subtitle">Te contactamos para confirmar dentro de pocas horas.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" class="form-control" placeholder="Tu nombre" [(ngModel)]="form.nombre" name="nombre" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="celular">Número de celular</label>
+            <input type="tel" id="celular" class="form-control" placeholder="+593 09X XXX XXXX" [(ngModel)]="form.celular" name="celular" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="pedido">Tipo de pedido</label>
+          <select id="pedido" class="form-control" [(ngModel)]="form.pedido" name="pedido">
+            <option value="">— Selecciona tu pedido —</option>
+            @for (opt of orderOptions; track opt.value) {
+              <option [value]="opt.value">{{ opt.label }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="fecha">Fecha de retiro</label>
+            <input type="date" id="fecha" class="form-control" [(ngModel)]="form.fecha" name="fecha" [min]="today" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="lugar">Lugar de retiro</label>
+            <select id="lugar" class="form-control" [(ngModel)]="form.lugar" name="lugar">
+              <option value="">— Selecciona —</option>
+              <option value="Mercado Santo Domingo · Puesto F139">Mercado Santo Domingo (Sáb &amp; Dom)</option>
+              <option value="Sector El Milagro · Vía a Urcuquí">Sector El Milagro (Solo Dom)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="notas">Notas adicionales</label>
+          <textarea id="notas" class="form-control" rows="3" placeholder="Ej: 2 libras de pierna, sin mote, para llevar..." [(ngModel)]="form.notas" name="notas"></textarea>
+        </div>
+
+        <button class="btn btn-whatsapp btn-submit" (click)="sendReservation()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.553 4.106 1.52 5.824L.057 23.25a.75.75 0 0 0 .916.932l5.42-1.433A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.86 0-3.606-.5-5.112-1.374l-.363-.216-3.773.996.999-3.671-.233-.373A9.978 9.978 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Enviar Reserva por WhatsApp
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,25 @@
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <span class="section-label">Lo que dicen nuestros clientes</span>
+      <h2 class="section-title">Sabor que se recuerda</h2>
+    </div>
+  </div>
+  <div class="track-wrapper">
+    <div class="testimonials-track">
+      @for (t of doubled; track $index) {
+        <div class="testi-card">
+          <div class="testi-stars">{{ getStars(t.stars) }}</div>
+          <p class="testi-text">{{ t.text }}</p>
+          <div class="testi-author">
+            <div class="testi-avatar" [style.background]="t.avatarBg">{{ t.avatar }}</div>
+            <div>
+              <div class="testi-name">{{ t.author }}</div>
+              <div class="testi-location">📍 {{ t.location }}</div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

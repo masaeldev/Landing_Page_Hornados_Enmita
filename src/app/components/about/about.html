@@ -1,0 +1,44 @@
+<section id="enmita" class="section about">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-photos reveal">
+        <div class="photo-main">
+          <span class="photo-placeholder">👵<small>Foto de Enmita</small></span>
+          <img [src]="enmitaPhoto" alt="Enmita, preparando hornado en su puesto" loading="lazy" (error)="onImgError($event)" />
+        </div>
+        <div class="photo-small">
+          <span class="photo-placeholder">🛖<small>Foto del puesto</small></span>
+          <img [src]="puestoPhoto" alt="Puesto F139 de Hornados Enmita en el Mercado Santo Domingo" loading="lazy" (error)="onImgError($event)" />
+        </div>
+        <div class="photo-badge">Puesto <strong>F139</strong></div>
+      </div>
+
+      <div class="about-text reveal reveal-delay-1">
+        <span class="section-label">Quién está detrás del sabor</span>
+        <h2 class="section-title">Conoce a Enmita</h2>
+        <div class="divider"></div>
+        <p>
+          Detrás de cada plato de hornado está <strong>Enmita</strong>, quien te atiende
+          personalmente en su puesto. Aquí no hay intermediarios: llegas, la saludas y
+          te sirve el hornado de siempre.
+        </p>
+
+        <div class="find-box">
+          <p class="find-title">📍 ¿Cómo encontrarla?</p>
+          <ul>
+            <li><strong>Sábados y domingos:</strong> Mercado Santo Domingo, <strong>puesto F139</strong>, desde las 06:00.</li>
+            <li><strong>Domingos:</strong> Sector El Milagro, vía a Urcuquí.</li>
+          </ul>
+          <p class="find-tip">💡 Busca el letrero <strong>F139</strong> y el logo de la abuelita con el chancho.</p>
+        </div>
+
+        <div class="about-ctas">
+          <a class="btn btn-primary" (click)="scrollTo('ubicaciones')">🗺️ Ver cómo llegar</a>
+          <a class="btn btn-outline" (click)="scrollTo('contacto')">📲 Reservar</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,85 @@
+<section id="menu" class="section">
+  <div class="container">
+    <div class="menu-header reveal">
+      <span class="section-label">Nuestra oferta</span>
+      <h2 class="section-title">Menú y Precios</h2>
+      <div class="divider"></div>
+      <p class="menu-intro">Del tradicional hornado al estilo de mercado, hasta los antojos del domingo en el campo.</p>
+    </div>
+
+    <div class="tab-nav reveal">
+      <button class="tab-btn" [class.active]="activeTab==='hornado'" (click)="switchTab('hornado')">🐷 Hornado Tradicional</button>
+      <button class="tab-btn" [class.active]="activeTab==='domingo'" (click)="switchTab('domingo')">🌿 Antojos del Domingo</button>
+    </div>
+
+    @if (activeTab === 'hornado') {
+      <div class="menu-grid">
+        @for (item of hornadoItems; track item.id; let i = $index) {
+          <div class="menu-card" [style.animation-delay]="(i * 0.1) + 's'">
+            <div class="menu-card-img" [ngClass]="item.imgClass">
+              <span class="emoji-fallback">{{ item.emoji }}</span>
+              @if (item.image) {
+                <img class="card-photo" [src]="item.image" [alt]="item.name" loading="lazy" (error)="onImgError($event)" />
+              }
+              <span class="card-tag">{{ item.tag }}</span>
+            </div>
+            <div class="menu-card-body">
+              <h3 class="menu-card-name">{{ item.name }}</h3>
+              <p class="menu-card-desc">{{ item.description }}</p>
+              <div class="menu-card-footer">
+                <div>
+                  <div class="price-tag">{{ item.price }}</div>
+                  <div class="price-sub">{{ item.priceSub }}</div>
+                </div>
+                <button class="btn-reservar" (click)="reservar(item)">Reservar</button>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+      <div class="menu-highlight tab-fade">
+        <div class="highlight-icon">🏆</div>
+        <div class="highlight-content">
+          <h3>Hornado por Libras</h3>
+          <p>¿Reunión familiar o evento? Lleva el sabor de Enmita a tu mesa. Cualquier parte del chancho, vendido por libras. Pedido mínimo con reserva anticipada.</p>
+          <button class="btn btn-primary highlight-btn" (click)="reservarLibras()">📲 Pedir por libras</button>
+        </div>
+      </div>
+    }
+
+    @if (activeTab === 'domingo') {
+      <div class="menu-grid">
+        @for (item of domingoItems; track item.id; let i = $index) {
+          <div class="menu-card" [style.animation-delay]="(i * 0.1) + 's'">
+            <div class="menu-card-img" [ngClass]="item.imgClass">
+              <span class="emoji-fallback">{{ item.emoji }}</span>
+              @if (item.image) {
+                <img class="card-photo" [src]="item.image" [alt]="item.name" loading="lazy" (error)="onImgError($event)" />
+              }
+              <span class="card-tag">{{ item.tag }}</span>
+            </div>
+            <div class="menu-card-body">
+              <h3 class="menu-card-name">{{ item.name }}</h3>
+              <p class="menu-card-desc">{{ item.description }}</p>
+              <div class="menu-card-footer">
+                <div>
+                  <div class="price-tag">{{ item.price }}</div>
+                  <div class="price-sub">{{ item.priceSub }}</div>
+                </div>
+                <button class="btn-reservar" (click)="reservar(item)">Reservar</button>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+      <div class="domingo-notice tab-fade">
+        <span>🌄</span>
+        <div>
+          <p class="notice-title">Solo disponible en Sector El Milagro</p>
+          <p class="notice-desc">Los antojos del domingo se sirven únicamente en nuestro puesto de la Vía a Urcuquí, perfectos para disfrutar al aire libre.</p>
+        </div>
+      </div>
+    }
+
+  </div>
+</section>
